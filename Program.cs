@@ -23,6 +23,15 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("https://yourdomain.com")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -38,6 +47,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Use the CORS policy
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllerRoute(
     name: "default",
