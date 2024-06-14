@@ -1,0 +1,36 @@
+@model NoteNet.ViewModels.AccountSettingsViewModel
+
+<h2>Account Settings</h2>
+
+<form asp-action="Settings" method="post">
+    <div class="form-group">
+        <label asp-for="Username" class="control-label"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NewPassword" class="control-label"></label>
+        <input asp-for="NewPassword" class="form-control" />
+        <span asp-validation-for="NewPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="control-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save Changes" class="btn btn-primary" />
+    </div>
+</form>
+
+<h3>Delete Account</h3>
+<form asp-action="DeleteAccount" method="post">
+    <div class="form-group">
+        <input type="submit" value="Delete My Account" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your account? This action cannot be undone.');" />
+    </div>
+</form>

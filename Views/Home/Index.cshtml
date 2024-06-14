@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var username = ViewData["Username"] as string;
+}
+
+<div class="container mt-4">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome, @username!</h1>
+        <p class="lead">This is your personal space to manage your bookmarks and notes.</p>
+        <hr class="my-4">
+        <p>Here you can:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Create and manage your personal bookmarks</li>
+            <li class="list-group-item">Take and organize notes in Markdown format</li>
+            <li class="list-group-item">Access your links and notes from any device</li>
+        </ul>
+        <p class="mt-4">
+            <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Pages")" role="button">Go to Pages</a>
+        </p>
+    </div>
+</div>
